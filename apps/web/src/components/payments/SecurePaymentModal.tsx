@@ -45,7 +45,7 @@ export default function SecurePaymentModal({
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/payments/create-order", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/payments/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -85,7 +85,7 @@ export default function SecurePaymentModal({
     setError("");
     try {
       const simulatedPaymentId = `pay_test_${orderData.gateway_order_id.slice(-8)}`;
-      const res = await fetch("http://127.0.0.1:8000/api/payments/verify", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/payments/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

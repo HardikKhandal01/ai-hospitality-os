@@ -69,7 +69,7 @@ export default function OwnerDashboardPage() {
 
   const fetchOverview = async (jwtToken: string) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/dashboard/overview", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/dashboard/overview", {
         headers: { Authorization: `Bearer ${jwtToken}` },
       });
       if (res.ok) {
@@ -96,7 +96,7 @@ export default function OwnerDashboardPage() {
     setLoginError("");
     setAuthLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/dashboard/login", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/dashboard/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -135,7 +135,7 @@ export default function OwnerDashboardPage() {
   const handleAddExpense = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!token || !expTitle || !expAmount) return;
-    const res = await fetch("http://127.0.0.1:8000/api/dashboard/expenses", {
+    const res = await fetch("https://ai-hospitality-os.onrender.com/api/dashboard/expenses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export default function OwnerDashboardPage() {
   const handleAddStaff = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!token || !staffEmail || !staffPassword) return;
-    const res = await fetch("http://127.0.0.1:8000/api/dashboard/staff", {
+    const res = await fetch("https://ai-hospitality-os.onrender.com/api/dashboard/staff", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -183,7 +183,7 @@ export default function OwnerDashboardPage() {
   const handleAddFeedback = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fbName || !fbComment) return;
-    const res = await fetch("http://127.0.0.1:8000/api/dashboard/feedback", {
+    const res = await fetch("https://ai-hospitality-os.onrender.com/api/dashboard/feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -204,7 +204,7 @@ export default function OwnerDashboardPage() {
   const downloadCSV = async (reportType: string) => {
     if (!token) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/dashboard/export-csv/${reportType}`, {
+      const res = await fetch(`https://ai-hospitality-os.onrender.com/api/dashboard/export-csv/${reportType}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {

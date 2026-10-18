@@ -250,7 +250,7 @@ export default function RestaurantDemoPage() {
     const savedConvId = localStorage.getItem("royal_haven_rest_conv_id");
     if (savedConvId) {
       setConversationId(savedConvId);
-      fetch(`http://127.0.0.1:8000/api/ai/history/${savedConvId}`)
+      fetch(`https://ai-hospitality-os.onrender.com/api/ai/history/${savedConvId}`)
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data) && data.length > 0) {
@@ -279,9 +279,9 @@ export default function RestaurantDemoPage() {
     setLoading(true);
     try {
       const [menuRes, billRes, kdsRes] = await Promise.all([
-        fetch("http://127.0.0.1:8000/api/restaurant/menu"),
-        fetch(`http://127.0.0.1:8000/api/restaurant/tables/${tNum}/bill`),
-        fetch("http://127.0.0.1:8000/api/restaurant/kitchen/orders"),
+        fetch("https://ai-hospitality-os.onrender.com/api/restaurant/menu"),
+        fetch(`https://ai-hospitality-os.onrender.com/api/restaurant/tables/${tNum}/bill`),
+        fetch("https://ai-hospitality-os.onrender.com/api/restaurant/kitchen/orders"),
       ]);
       const menuData = await menuRes.json();
       const billData = await billRes.json();
@@ -343,7 +343,7 @@ export default function RestaurantDemoPage() {
     setOrderSuccessMsg("");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/restaurant/orders", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/restaurant/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -371,7 +371,7 @@ export default function RestaurantDemoPage() {
   const updateKitchenStatus = async (orderId: string, nextStatus: string) => {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/restaurant/kitchen/orders/${orderId}/status?status=${nextStatus}`,
+        `https://ai-hospitality-os.onrender.com/api/restaurant/kitchen/orders/${orderId}/status?status=${nextStatus}`,
         { method: "PATCH" }
       );
       if (res.ok) {
@@ -412,7 +412,7 @@ export default function RestaurantDemoPage() {
     setAiTyping(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/ai/chat", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

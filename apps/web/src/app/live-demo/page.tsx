@@ -58,7 +58,7 @@ export default function LiveDemoOperationsPage() {
   const fetchOperations = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/operations/overview");
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/operations/overview");
       const data = await res.json();
       if (data.calendar_events) setEvents(data.calendar_events);
       if (data.notifications) setNotifications(data.notifications);
@@ -76,7 +76,7 @@ export default function LiveDemoOperationsPage() {
     setSimulating(true);
     setBannerMsg("");
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/operations/simulate-230am-demo", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/operations/simulate-230am-demo", {
         method: "POST",
       });
       const data = await res.json();
@@ -96,7 +96,7 @@ export default function LiveDemoOperationsPage() {
   const retryDispatch = async (id: string) => {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/operations/notifications/${id}/retry`,
+        `https://ai-hospitality-os.onrender.com/api/operations/notifications/${id}/retry`,
         { method: "POST" }
       );
       if (res.ok) {

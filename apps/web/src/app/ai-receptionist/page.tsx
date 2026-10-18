@@ -81,7 +81,7 @@ export default function UnifiedAIReceptionistAndSecurityPage() {
   }, [messages, aiTyping]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/security/audit")
+    fetch("https://ai-hospitality-os.onrender.com/api/security/audit")
       .then((res) => res.json())
       .then((data) => setAuditData(data))
       .catch(() => {});
@@ -145,7 +145,7 @@ export default function UnifiedAIReceptionistAndSecurityPage() {
     setAiTyping(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/ai/chat", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

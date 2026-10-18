@@ -225,7 +225,7 @@ export default function HotelDemoPage() {
     const savedConvId = localStorage.getItem("royal_haven_hotel_conv_id");
     if (savedConvId) {
       setConversationId(savedConvId);
-      fetch(`http://127.0.0.1:8000/api/ai/history/${savedConvId}`)
+      fetch(`https://ai-hospitality-os.onrender.com/api/ai/history/${savedConvId}`)
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data) && data.length > 0) {
@@ -273,7 +273,7 @@ export default function HotelDemoPage() {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/hotel/rooms?check_in=${inDate}&check_out=${outDate}`
+        `https://ai-hospitality-os.onrender.com/api/hotel/rooms?check_in=${inDate}&check_out=${outDate}`
       );
       const data = await res.json();
       if (Array.isArray(data)) {
@@ -329,7 +329,7 @@ export default function HotelDemoPage() {
     setAiTyping(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/ai/chat", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -451,7 +451,7 @@ export default function HotelDemoPage() {
     setErrorMsg("");
     setBookingResult(null);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/hotel/bookings", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/hotel/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -483,7 +483,7 @@ export default function HotelDemoPage() {
     setErrorMsg("");
     setGroupResult(null);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/hotel/group-bookings", {
+      const res = await fetch("https://ai-hospitality-os.onrender.com/api/hotel/group-bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
