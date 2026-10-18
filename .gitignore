@@ -1,0 +1,21 @@
+# Environments
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Node
+node_modules/
+.next/
+out/
+build/
+
+# Database
+*.sqlite3
+*.db
